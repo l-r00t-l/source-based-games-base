@@ -3,6 +3,21 @@
 #include "pch.h"
 #include "sdk/sdk.hpp"
 
+/*
+
+Initalization queue
+c_logger
+c_modules
+c_interfaces
+c_render
+c_netvars
+c_hooks
+c_events
+
+*/
+
+
+
 auto instance(HMODULE hModule) -> int
 {
     // Wait for latest module to load
@@ -10,20 +25,24 @@ auto instance(HMODULE hModule) -> int
     while (!GetModuleHandleA("mss32.dll") || !GetModuleHandleA("materialsystem.dll"))
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
 #endif
-    c_logger::get()->init("output");
+    c_logger::get()->init("console");
     c_logger::get()->greeting();
 
     c_modules::get()->init();
     c_interfaces::get()->init();
     c_netvars::get()->init();
     c_hooks::get()->init();
+    c_events::get()->init();
 
     while(!GetAsyncKeyState(VK_END))
 		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
+    c_events::get()->destroy();
     c_hooks::get()->restore();
+
     std::this_thread::sleep_for(std::chrono::seconds(3));
     c_logger::get()->destroy();
+
     FreeLibraryAndExitThread(hModule, EXIT_SUCCESS);
 }
 

@@ -24,6 +24,7 @@
 #define VERSION_DEBUG_OVERLAY_STRING		"VDebugOverlay004"
 #define VERSION_MODEL_INFO_STRING			"VModelInfoClient004"
 #define VERSION_MODEL_CACHE_STRING			"MDLCache004"
+#define VERSION_EVENT_MANAGER_STRING		"GAMEEVENTSMANAGER002"
 #pragma endregion
 #endif
 class c_interfaces : public c_singleton<c_interfaces>

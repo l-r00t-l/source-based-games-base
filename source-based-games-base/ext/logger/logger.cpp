@@ -61,7 +61,7 @@ void c_logger::printf(const log_t level, const char* _format, ...)
 		print_colored("[+] ", FOREGROUND_INTENSE_GREEN);
 		break;
 	case log_t::warning:
-		print_colored("[!] ", FOREGROUND_RED | FOREGROUND_YELLOW);
+		print_colored("[!] ", FOREGROUND_YELLOW);
 		break;
 	case log_t::error:
 		print_colored("[-] ", FOREGROUND_RED);

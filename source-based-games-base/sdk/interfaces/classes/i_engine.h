@@ -32,6 +32,11 @@ struct player_info_t
 
 class i_engine {
 public:
+	bool get_player_info(const int ent_num, player_info_t* info) 
+	{
+		return g_utils.call_vfunc<bool, const int, player_info_t*>(this, 8, ent_num, info);
+	}
+
 	bool con_is_visible()
 	{
 		return g_utils.call_vfunc<bool>(this, 11);
@@ -59,5 +64,10 @@ public:
 	void set_view_angles(const qangle_t& view_angle)
 	{
 		g_utils.call_vfunc<void, const qangle_t&>(this, 19, view_angle);
+	}
+
+	int get_player_for_user_id(const int user_id)
+	{
+		return g_utils.call_vfunc<int, const int>(this, 9, user_id);
 	}
 };

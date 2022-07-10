@@ -35,6 +35,7 @@ void c_interfaces::init() const
 	g_sdk.m_interfaces.m_entity_list	= this->get_interface<i_client_entity_list>(g_sdk.m_modules.m_client_dll, VERSION_CLIENT_ENTITY_LIST_STRING);
 	g_sdk.m_interfaces.m_model_info		= this->get_interface<i_model_info>(g_sdk.m_modules.m_engine_dll, VERSION_MODEL_INFO_STRING);
 	g_sdk.m_interfaces.m_mdl_cache		= this->get_interface<i_mdl_cache>(g_sdk.m_modules.m_data_cache_dll, VERSION_MODEL_CACHE_STRING);
+	g_sdk.m_interfaces.m_event_manager	= this->get_interface<i_game_event_manager>(g_sdk.m_modules.m_engine_dll, VERSION_EVENT_MANAGER_STRING);
 
 	if (const HINSTANCE handle = GetModuleHandle("vstdlib.dll"))
 		g_sdk.m_interfaces.m_key_values = reinterpret_cast<void* (__cdecl*)()>(GetProcAddress(handle, "KeyValuesSystem"))();
@@ -46,4 +47,5 @@ void c_interfaces::init() const
 	ASSERT(g_sdk.m_interfaces.m_model_info != nullptr, "m_interfaces.m_model_info is nullptr");
 	ASSERT(g_sdk.m_interfaces.m_mdl_cache != nullptr, "m_interfaces.m_mdl_cache is nullptr");
 	ASSERT(g_sdk.m_interfaces.m_key_values != nullptr, "m_interfaces.m_key_values is nullptr");
+	ASSERT(g_sdk.m_interfaces.m_event_manager != nullptr, "m_interfaces.m_event_manager is nullptr");
 }

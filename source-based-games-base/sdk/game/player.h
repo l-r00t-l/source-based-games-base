@@ -57,6 +57,7 @@ public:
 // 	GET_OFFSET(CUtlVector<matrix_t>, get_bone_cache, 0x2914);
 // 	GET_OFFSET(bool, should_use_new_anim_state, 0x9B14);
 // 	GET_VFUNC(bool(__thiscall*)(void*), is_player(), 158);
+	GET_VFUNC(is_player, 158, bool);
 // 	GET_VFUNC(int(__thiscall*)(void*), is_max_health(), 122);
 	GET_VFUNC(is_max_health, 122, int);
 // 	GET_VFUNC(const char* (__thiscall*)(void*), get_classname(), 59);

@@ -14,15 +14,18 @@
 #include "../ext/singleton/singleton.h"
 #include "../ext/logger/logger.h"
 
+/* utils */
 #include "utils/utils.h"
+
+/* modules */
 #include "modules/modules.h"
-#include "interfaces/interfaces.h"
 
 /* game */
 #include "game/entity.h"
 // #include "game/player.h"
 
 /* interfaces */
+#include "interfaces/interfaces.h"
 #include "interfaces/classes/i_client.h"
 #include "interfaces/classes/i_engine.h"
 #include "interfaces/classes/i_client_entity_list.h"
@@ -33,12 +36,17 @@
 #include "interfaces/classes/i_engine_trace.h"
 #include "interfaces/classes/i_breakable_with_prop_data.h"
 #include "interfaces/classes/i_client_mode_shared.h"
+#include "interfaces/classes/i_event_manager.h"
 
 /* netvars */
 #include "netvar-manager/netvar_manager.h"
 
 /* hooks */
 #include "../src/hooks/hooks.h"
+
+/* event manager */
+#include "event-manager/event_manager.h"
+
 
 /* other */
 #include "other/studio.h"
@@ -57,6 +65,7 @@ public:
 		i_mdl_cache*				m_mdl_cache{};
 		i_client_mode_shared*		m_client_mode{};
 		void*						m_key_values{};
+		i_game_event_manager*		m_event_manager{};
 	}m_interfaces{};
 
 	struct m_module_list_t
@@ -81,6 +90,9 @@ public:
 		uint8_t* m_client = nullptr;
 		uint8_t* m_engine = nullptr;
 	}m_return_adress{};
+	
+
+
 	c_base_player* m_local{};
 
 	void m_update_local_player()

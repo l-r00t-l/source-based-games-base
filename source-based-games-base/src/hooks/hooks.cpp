@@ -54,8 +54,8 @@ void c_hooks::init()
 
 void c_hooks::restore()
 {
+	c_logger::get()->printf(log_t::warning, "restoring hooks ...");
 	MH_DisableHook(MH_ALL_HOOKS);
 	MH_RemoveHook(MH_ALL_HOOKS);
 	MH_Uninitialize();
-	c_logger::get()->printf(log_t::warning, "hooks restored");
 }
