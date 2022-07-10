@@ -3,6 +3,7 @@
 #include "weapon.h"
 #include "breakable_surface.h"
 #include "../netvar-manager/netvar_manager.h"
+#include "../other/studio.h"
 
 #define GET_VFUNC(name, index, ...) \
 __VA_ARGS__ name() \
@@ -13,7 +14,7 @@ __VA_ARGS__ name() \
 #define GET_OFFSET(name, offset, ...) \
 __VA_ARGS__ name() \
 { \
-	return g_utils.call_vfunc<__VA_ARGS__>(this, 0, offset); \
+	return g_utils.call_vfunc_offset<__VA_ARGS__>(this, 0, offset); \
 }
 
 

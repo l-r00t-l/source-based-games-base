@@ -22,27 +22,35 @@ public:
 
 	static uint8_t* find_sig(HMODULE module, const std::string& byte_array);
 
-
-// 	template <typename T>
-// 	static __forceinline T call_vfunc(void* instance, size_t index, size_t offset = 0)
-// 	{
-// 		return (*static_cast<T**>(instance))[index];
-// 	}
-	__forceinline void**& call_vtable(void* instance, size_t offset = 0)
+	__forceinline void** get_vtable(void* instance, size_t offset = 0)
 	{
 		return *reinterpret_cast<void***>(reinterpret_cast<size_t>(instance) + offset);
 	}
 
-	__forceinline const void** call_vtable(const void* instance, size_t offset = 0)
+	__forceinline const void** get_vtable(const void* instance, size_t offset = 0)
 	{
 		return *reinterpret_cast<const void***>(reinterpret_cast<size_t>(instance) + offset);
 	}
 
-	template <typename T>
-	__forceinline T call_vfunc(void* instance, size_t index, size_t offset = 0)
+	__forceinline void* get_vfunc(void* instance, size_t index, size_t offset = 0)
 	{
-		return reinterpret_cast<T>(call_vtable(instance, offset)[index]);
+		return reinterpret_cast<void*>(get_vtable(instance, offset)[index]);
 	}
+
+	template <typename ret_t, typename ... arg_t>
+	__forceinline ret_t call_vfunc(void* instance, size_t index, arg_t ... args)
+	{
+		using _return_t = ret_t(__thiscall*)(void*, decltype(args)...);
+		return (*static_cast<_return_t**>(instance))[index](instance, args...);
+	}
+
+	template <typename ret_t, typename ... arg_t>
+	__forceinline ret_t call_vfunc_offset(void* instance, size_t index, size_t offset = 0, arg_t ... args)
+	{
+		using _return_t = ret_t(__thiscall*)(void*, decltype(args)...);
+		return (*reinterpret_cast<_return_t**>(reinterpret_cast<size_t>(instance) + offset))[index](instance, args...);
+	}
+
 
 	template <typename T>
 	static __forceinline T call_vfunc2(void* instance, std::size_t index)
@@ -54,7 +62,7 @@ public:
 	void init_key_sys(UINT msg, WPARAM wParam);
 	
 	static const uint32_t BASE		= 0x811C9DC5;
-	static const uint32_t PRIME	= 0x1000193;
+	static const uint32_t PRIME		= 0x1000193;
 
 	const uint32_t compile_time(const char* data, const uint32_t value = BASE);
 	const uint32_t run_time(std::string_view data);

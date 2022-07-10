@@ -2,6 +2,7 @@
 #include <functional>
 #include "../../utils/utils.h"
 #include "../../math/matrix.h"
+#include "../../math/qangle.h"
 
 struct player_info_t
 {
@@ -50,7 +51,13 @@ public:
 		return g_utils.call_vfunc<bool>(this, 27);
 	}
 
-	const VMatrix& world_to_screen_matrix() {
+	const VMatrix& world_to_screen_matrix() 
+	{
 		return g_utils.call_vfunc<const VMatrix&>(this, 37); //(__thiscall*)(void*)  (this)
+	}
+
+	void set_view_angles(const qangle_t& view_angle)
+	{
+		g_utils.call_vfunc<void, const qangle_t&>(this, 19, view_angle);
 	}
 };

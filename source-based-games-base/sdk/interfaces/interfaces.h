@@ -2,7 +2,13 @@
 // #include "../sdk.hpp"
 #include "../../ext/singleton/singleton.h"
 #include <Windows.h>
+
 #define CSGO
+
+#ifndef MY_ASSERT
+#define MY_ASSERT
+#define ASSERT(_EXPR, additional_info)	assert(_EXPR && additional_info); if (!(_EXPR)) c_logger::get()->printf(log_t::critical, additional_info);
+#endif
 
 #ifdef CSGO
 #pragma region version_strings

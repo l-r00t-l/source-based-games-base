@@ -1,4 +1,5 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
+#define WIN32_LEAN_AND_MEAN
 #include "pch.h"
 #include "sdk/sdk.hpp"
 
@@ -15,10 +16,13 @@ auto instance(HMODULE hModule) -> int
     c_modules::get()->init();
     c_interfaces::get()->init();
     c_netvars::get()->init();
+    c_hooks::get()->init();
 
     while(!GetAsyncKeyState(VK_END))
 		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
+    c_hooks::get()->restore();
+    std::this_thread::sleep_for(std::chrono::seconds(3));
     c_logger::get()->destroy();
     FreeLibraryAndExitThread(hModule, EXIT_SUCCESS);
 }

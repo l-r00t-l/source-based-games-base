@@ -19,23 +19,30 @@
 #include "interfaces/interfaces.h"
 
 /* game */
-
+#include "game/entity.h"
+// #include "game/player.h"
 
 /* interfaces */
 #include "interfaces/classes/i_client.h"
 #include "interfaces/classes/i_engine.h"
 #include "interfaces/classes/i_client_entity_list.h"
+#include "interfaces/classes/i_client_entity.h"
 #include "interfaces/classes/i_model_info.h"
 #include "interfaces/classes/i_model_cache.h"
 #include "interfaces/classes/i_multiplayer_physics.h"
 #include "interfaces/classes/i_engine_trace.h"
 #include "interfaces/classes/i_breakable_with_prop_data.h"
+#include "interfaces/classes/i_client_mode_shared.h"
 
 /* netvars */
 #include "netvar-manager/netvar_manager.h"
 
+/* hooks */
+#include "../src/hooks/hooks.h"
+
 /* other */
 #include "other/studio.h"
+#include "other/cmd.h"
 
 /* math */
 #include "math/math.h"
@@ -43,11 +50,13 @@
 class c_sdk {
 public:
 	struct m_interfaces_t {
-		i_base_client_dll* m_client{};
-		i_engine* m_engine{};
-		i_client_entity_list* m_entity_list{};
-		i_model_info* m_model_info{};
-		i_mdl_cache* m_mdl_cache{};
+		i_base_client_dll*			m_client{};
+		i_engine*					m_engine{};
+		i_client_entity_list*		m_entity_list{};
+		i_model_info*				m_model_info{};
+		i_mdl_cache*				m_mdl_cache{};
+		i_client_mode_shared*		m_client_mode{};
+		void*						m_key_values{};
 	}m_interfaces{};
 
 	struct m_module_list_t
@@ -68,6 +77,10 @@ public:
 		HMODULE m_studio_render_dll{};
 	}m_modules{};
 	
+	struct m_return_address_t {
+		uint8_t* m_client = nullptr;
+		uint8_t* m_engine = nullptr;
+	}m_return_adress{};
 	c_base_player* m_local{};
 
 	void m_update_local_player()
