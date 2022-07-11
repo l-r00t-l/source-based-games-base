@@ -26,9 +26,13 @@ using _alloc_key_values = void* (__thiscall*)(void*, const int32_t);
 
 class c_hooks : public c_singleton<c_hooks>
 {
+private:
+	HWND window{};
 protected:
 	static bool __stdcall hk_create_move(float frame_time, c_user_cmd* cmd);
 	static void* __stdcall hk_alloc_key_values(const int32_t size);
+	static void init_wnd_proc();
+	static long __stdcall hk_wnd_proc(HWND window, UINT msg, WPARAM wparam, LPARAM lparam);
 public:
 
 	struct originals_t
