@@ -10,6 +10,11 @@
 #include <thread>
 #include <array>
 
+/* d3dx9 */
+#include <d3d9.h>
+#include <d3dx9.h>
+
+
 /* dependencies */
 #include "../ext/singleton/singleton.h"
 #include "../ext/logger/logger.h"
@@ -66,6 +71,7 @@ public:
 		i_client_mode_shared*		m_client_mode{};
 		void*						m_key_values{};
 		i_game_event_manager*		m_event_manager{};
+		IDirect3DDevice9*			m_direct_device{};
 	}m_interfaces{};
 
 	struct m_module_list_t

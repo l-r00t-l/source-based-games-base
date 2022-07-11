@@ -9,6 +9,7 @@ void c_modules::init() const
 	g_sdk.m_modules.m_mat_sys_dll		= GetModuleHandle("materialsystem.dll");
 	g_sdk.m_modules.m_vstd_dll			= GetModuleHandle("vstdlib.dll");
 	g_sdk.m_modules.m_data_cache_dll	= GetModuleHandle("datacache.dll");
+	g_sdk.m_modules.m_shader_dll		= GetModuleHandle("shaderapidx9.dll");
 	
 	ASSERT(g_sdk.m_modules.m_client_dll != nullptr, "m_modules.m_client_dll is nullptr");
 	ASSERT(g_sdk.m_modules.m_engine_dll != nullptr, "m_modules.m_engine_dll is nullptr");
@@ -16,6 +17,7 @@ void c_modules::init() const
 	ASSERT(g_sdk.m_modules.m_mat_sys_dll != nullptr, "m_modules.m_mat_sys_dll is nullptr");
 	ASSERT(g_sdk.m_modules.m_vstd_dll != nullptr, "m_modules.m_vstd_dll is nullptr");
 	ASSERT(g_sdk.m_modules.m_data_cache_dll != nullptr, "m_modules.m_data_cache_dll is nullptr");
+	ASSERT(g_sdk.m_modules.m_shader_dll != nullptr, "m_modules.m_shader_dll is nullptr");
 
 	g_sdk.m_return_adress.m_client = g_utils.find_sig(g_sdk.m_modules.m_client_dll, "FF 52 04 85 C0 74 0C 56") + 0x3;
 	g_sdk.m_return_adress.m_engine = g_utils.find_sig(g_sdk.m_modules.m_engine_dll, "FF 52 04 85 C0 74 0C 56") + 0x3;

@@ -101,18 +101,24 @@
     <OutDir>$(SolutionDir)bin\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate - $(Configuration)\</IntDir>
     <TargetName>$(ProjectName) - $(Configuration)</TargetName>
+    <IncludePath>$(DXSDK_DIR)Include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug - csgo|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate - $(Configuration)\</IntDir>
     <TargetName>$(ProjectName) - $(Configuration)</TargetName>
+    <IncludePath>$(DXSDK_DIR)Include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate - $(Configuration)\</IntDir>
     <TargetName>$(ProjectName) - $(Configuration)</TargetName>
+    <IncludePath>$(DXSDK_DIR)Include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -225,6 +231,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="sdk\engine-prediction\engine_prediction.h" />
     <ClInclude Include="sdk\event-manager\event_manager.h" />
     <ClInclude Include="ext\minhook\buffer.h" />
     <ClInclude Include="ext\minhook\hde\hde32.h" />
@@ -294,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="sdk\engine-prediction\engine_prediction.cpp" />
     <ClCompile Include="sdk\event-manager\event_manager.cpp" />
     <ClCompile Include="ext\logger\logger.cpp" />
     <ClCompile Include="ext\minhook\buffer.c" />
