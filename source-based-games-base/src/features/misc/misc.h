@@ -5,7 +5,11 @@
 
 class c_misc : public c_singleton<c_misc>
 {
+	int32_t flags_backup{};
+private:
 	void bunnyhop(c_user_cmd* cmd);
+	void edge_jump_pre_prediction(c_user_cmd* cmd);
 public:
+	void edge_jump_post_prediction(c_user_cmd* cmd);
 	void run(c_user_cmd* cmd);
 };

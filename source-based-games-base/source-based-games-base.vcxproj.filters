@@ -27,9 +27,6 @@
     <ClInclude Include="ext\logger\logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\sdk.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="sdk\interfaces\interfaces.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -214,6 +211,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sdk\engine-prediction\engine_prediction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\sdk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\other\utl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

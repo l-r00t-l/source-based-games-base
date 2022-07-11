@@ -13,6 +13,7 @@
 #include <iostream>
 #include <cstdarg>
 #include <cstdio>
+#include <cstring>
 #include <vector>
 #include <cmath>
 #include <corecrt_math_defines.h>
@@ -21,5 +22,7 @@
 #include <cstdint>
 #include <wtypes.h>
 #include <array>
-
+#include <string_view>
+#include <chrono>
+#include <deque>
 #endif //PCH_H

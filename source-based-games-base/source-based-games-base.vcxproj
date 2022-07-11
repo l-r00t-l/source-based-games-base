@@ -247,6 +247,7 @@
     <ClInclude Include="ext\singleton\singleton.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="ext\logger\logger.h" />
+    <ClInclude Include="sdk\other\utl.h" />
     <ClInclude Include="src\features\misc\misc.h" />
     <ClInclude Include="sdk\interfaces\classes\i_client_mode_shared.h" />
     <ClInclude Include="src\hooks\hooks.h" />

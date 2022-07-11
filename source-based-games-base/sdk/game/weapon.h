@@ -114,7 +114,7 @@ public:
 	GET_NETVAR(get_clip2, "CBaseCombatWeapon->m_iClip2", int);
 	GET_NETVAR(get_postpone_fire_ready_time, "CWeaponCSBase->m_flPostponeFireReadyTime", float);
 	GET_OFFSET(get_thrower, 0x29B0, c_handle<c_base_player>);
-	GET_VFUNC(update_accuracy_penalty, 484, void);
+	//GET_VFUNC(update_accuracy_penalty, 484, void); //crashing
 	GET_VFUNC(get_spread, 453, float);
 	GET_VFUNC(get_inaccuracy, 483, float);
 	GET_VFUNC(get_weapon_data, 461, c_weapon_info*);

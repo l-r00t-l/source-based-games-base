@@ -7,7 +7,7 @@ class i_game_event;
 
 /*
 
-	#Ref: https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events
+	@ref: https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events
 
 */
 class c_events : public c_singleton<c_events>, public i_game_event_listener

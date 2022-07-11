@@ -1,5 +1,9 @@
 #pragma once
+#include "pch.h"
 // #include "../sdk.hpp"
+
+#define TOGGLED 0
+#define PRESSED 1
 
 struct key_bind_t
 {

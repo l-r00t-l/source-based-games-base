@@ -51,6 +51,7 @@ public:
 // 	GET_NETVAR(c_handle < c_weapon >, get_active_weapon_handle, _("DT_BaseCombatCharacter"), _("m_hActiveWeapon"));
 	GET_NETVAR(is_defusing, "CBasePlayer->m_bIsDefusing", bool);
 // 	GET_NETVAR(bool, is_defusing, _("DT_BasePlayer"), _("m_bIsDefusing"));
+	GET_NETVAR(get_next_think_tick, "CBasePlayer->m_nNextThinkTick", int);
 // 	GET_OFFSET(int, get_take_damage, 0x280);
 	GET_OFFSET(get_take_damage, 0x280, int);
 // 	GET_OFFSET(c_bone_accressor, get_bone_accessor, 0x26A8);
@@ -65,7 +66,9 @@ public:
 // 	GET_VFUNC(unsigned int(__thiscall*)(void*), physics_solid_mask_for_entity(), 151);
 	GET_VFUNC(physics_solid_mask_for_entity, 151, unsigned int);
 // 	GET_VFUNC(void(__thiscall*)(void*), get_think(), 139);
+	GET_VFUNC(get_think, 139, void);
 // 	GET_VFUNC(void(__thiscall*)(void*), get_pre_think(), 318);
+	GET_VFUNC(get_pre_think, 318, void);
 // 	GET_VFUNC(void(__thiscall*)(void*), studio_frame_advance(), 220);
 // 	GET_VFUNC(void(__thiscall*)(void*), update_collistion_bounds(), 340);
 // 	GET_VFUNC(void(__thiscall*)(void*), update_client_side_animations(), 224);
@@ -102,6 +105,11 @@ public:
 			}
 		}
 		return vec3_t{};
+	}
+
+	uintptr_t get_address()
+	{
+		return reinterpret_cast<uintptr_t>(this);
 	}
 
 	void invalidate_physics_recursive(const int flag)

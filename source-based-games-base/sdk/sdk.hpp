@@ -1,14 +1,5 @@
 #pragma once
-
-/* microsoft */
-#include <vector>
-#include <Windows.h>
-#include <string>
-#include <cmath>
-#include <string_view>
-#include <chrono>
-#include <thread>
-#include <array>
+#include "pch.h"
 
 /* d3dx9 */
 #include <d3d9.h>
@@ -42,6 +33,10 @@
 #include "interfaces/classes/i_breakable_with_prop_data.h"
 #include "interfaces/classes/i_client_mode_shared.h"
 #include "interfaces/classes/i_event_manager.h"
+#include "interfaces/classes/i_globals.h"
+#include "interfaces/classes/i_prediction.h"
+#include "interfaces/classes/i_move_helper.h"
+#include "interfaces/classes/i_game_movement.h"
 
 /* netvars */
 #include "netvar-manager/netvar_manager.h"
@@ -72,6 +67,10 @@ public:
 		void*						m_key_values{};
 		i_game_event_manager*		m_event_manager{};
 		IDirect3DDevice9*			m_direct_device{};
+		i_global_vars_base*			m_globals{};
+		i_prediction*				m_prediction{};
+		i_move_helper*				m_move_helper{};
+		i_game_movement*			m_game_movement{};
 	}m_interfaces{};
 
 	struct m_module_list_t
@@ -97,7 +96,10 @@ public:
 		uint8_t* m_engine = nullptr;
 	}m_return_adress{};
 	
-
+	struct local_data_t
+	{
+		vec3_t m_shoot_pos{};
+	}m_local_data{};
 
 	c_base_player* m_local{};
 
@@ -108,3 +110,6 @@ public:
 };
 
 inline c_sdk g_sdk = c_sdk();
+
+#define TIME_TO_TICKS(time_) ((int)(0.5f + (float)((time_)) / g_sdk.m_interfaces.m_globals->m_interval_per_tick))
+#define TICKS_TO_TIME(tick) (float)((tick) * g_sdk.m_interfaces.m_globals->m_interval_per_tick)

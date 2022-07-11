@@ -54,7 +54,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 
     // Attached
     // TODO: play a sound when attached
-
+    Beep(800, 200); // 523 hz for 200 ms
     if (const HANDLE thread = CreateThread(nullptr, NULL, reinterpret_cast<LPTHREAD_START_ROUTINE>(instance), hModule, NULL, nullptr))
         CloseHandle(thread);
 

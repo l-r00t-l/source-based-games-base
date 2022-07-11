@@ -6,6 +6,7 @@
 
 /* features */
 #include "../features/misc/misc.h"
+#include "../../sdk/engine-prediction/engine_prediction.h"
 
 /* d3d9x */
 
@@ -20,7 +21,15 @@ bool __stdcall c_hooks::hk_create_move(float frame_time, c_user_cmd* cmd)
 		g_sdk.m_interfaces.m_engine->set_view_angles(cmd->m_view_angles);
 
 	c_misc::get()->run(cmd);
-	
+
+	c_engine_prediction::get()->init();
+	c_engine_prediction::get()->begin(cmd);
+	{
+		//c_misc::get()->edge_jump_post_prediction(cmd);
+		// do aimbot etc...
+	}
+	c_engine_prediction::get()->end();
+
 	return false;
 
 }

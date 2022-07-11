@@ -25,6 +25,8 @@
 #define VERSION_MODEL_INFO_STRING			"VModelInfoClient004"
 #define VERSION_MODEL_CACHE_STRING			"MDLCache004"
 #define VERSION_EVENT_MANAGER_STRING		"GAMEEVENTSMANAGER002"
+#define VERSION_CLIENT_PREDICTION_STRING	"VClientPrediction001"
+#define VERSION_GAME_MOVEMENT_STRING		"GameMovement001"
 #pragma endregion
 #endif
 class c_interfaces : public c_singleton<c_interfaces>
