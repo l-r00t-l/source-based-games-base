@@ -1,6 +1,9 @@
+#include "pch.h"
+
 #include "netvar_manager.h"
 #include "../interfaces/classes/i_client.h"
 #include "../sdk.hpp"
+
 
 void c_netvars::init()
 {

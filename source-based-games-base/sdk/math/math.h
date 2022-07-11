@@ -2,7 +2,6 @@
 #include "matrix.h"
 #include "qangle.h"
 #include "vec3.h"
-#include <corecrt_math_defines.h>
 #include "../interfaces/interfaces.h"
 
 #define PI_F ( ( float )( M_PI ) ) 

@@ -1,5 +1,8 @@
+#include "pch.h"
+
 #include "interfaces.h"
 #include "../sdk.hpp"
+
 template<typename interface_>
 interface_* c_interfaces::get_interface(const char* module_name, const char* interface_name) const
 {

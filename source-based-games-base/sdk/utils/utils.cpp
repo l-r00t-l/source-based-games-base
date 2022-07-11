@@ -1,5 +1,6 @@
+#include "pch.h"
 #include "utils.h"
-#include <vector>
+// #include <vector>
 #include "../sdk.hpp"
 
 uint8_t* c_utils::find_sig(const HMODULE module, const std::string& byte_array)

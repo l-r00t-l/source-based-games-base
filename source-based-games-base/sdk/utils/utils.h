@@ -1,9 +1,5 @@
 #pragma once
 // #include "../sdk.hpp"
-#include <cstdint>
-#include <string>
-#include <wtypes.h>
-#include <array>
 
 struct key_bind_t
 {

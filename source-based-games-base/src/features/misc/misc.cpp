@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "misc.h"
 #include "../../../sdk/sdk.hpp"
 // #include "../../../sdk/game/entity.h"

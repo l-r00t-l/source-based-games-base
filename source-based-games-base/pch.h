@@ -13,4 +13,13 @@
 #include <iostream>
 #include <cstdarg>
 #include <cstdio>
+#include <vector>
+#include <cmath>
+#include <corecrt_math_defines.h>
+#include <limits>
+#include <string>
+#include <cstdint>
+#include <wtypes.h>
+#include <array>
+
 #endif //PCH_H

@@ -1,6 +1,9 @@
+#include "pch.h"
+
 #include "base_handle.h"
 // #include "../../interfaces/interfaces.h"
 #include "../../sdk.hpp"
+
 
 i_handle_entity* c_base_handle::get() const
 {

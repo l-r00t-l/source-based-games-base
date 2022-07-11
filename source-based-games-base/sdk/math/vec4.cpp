@@ -1,7 +1,6 @@
+#include "pch.h"
 #include "vec4.h"
 
-#include <cmath>
-#include <limits>
 
 void VectorCopy(const vec4_t& src, vec4_t& dst)
 {

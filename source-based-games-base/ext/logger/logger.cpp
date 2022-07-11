@@ -1,4 +1,4 @@
-#include "../../pch.h"
+#include "pch.h"
 #include "logger.h"
 
 void c_logger::set_title(const char* title)

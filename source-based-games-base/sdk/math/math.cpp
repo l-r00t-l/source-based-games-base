@@ -1,5 +1,8 @@
+#include "pch.h"
+
 #include "math.h"
 #include "../sdk.hpp"
+
 void c_math::vector_transform(const vec3_t& in1, const matrix_t& in2, vec3_t& out) {
 	out[0] = in1.dot(in2[0]) + in2[0][3];
 	out[1] = in1.dot(in2[1]) + in2[1][3];

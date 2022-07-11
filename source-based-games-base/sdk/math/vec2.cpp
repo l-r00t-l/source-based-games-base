@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "vec2.h"
-#include <cmath>
 
 vec2_t::vec2_t(void)
 {

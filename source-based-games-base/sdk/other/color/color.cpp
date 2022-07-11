@@ -1,4 +1,7 @@
+#include "pch.h"
+
 #include "color.h"
+
 
 c_color c_color::black(0, 0, 0, 255);
 c_color c_color::white(255, 255, 255, 255);
