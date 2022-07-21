@@ -1,11 +1,11 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
-#define WIN32_LEAN_AND_MEAN
 #include "pch.h"
+#define WIN32_LEAN_AND_MEAN
 #include "sdk/sdk.hpp"
 
 /*
 
-Initalization queue
+Initialization queue
 c_logger
 c_modules
 c_interfaces
@@ -34,6 +34,7 @@ auto instance(HMODULE hModule) -> int
     c_hooks::get()->init();
     c_events::get()->init();
 
+    // Unhook
     while(!GetAsyncKeyState(VK_END))
 		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
@@ -53,8 +54,7 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
         return FALSE;
 
     // Attached
-    // TODO: play a sound when attached
-    Beep(800, 200); // 523 hz for 200 ms
+    Beep(800, 200);
     if (const HANDLE thread = CreateThread(nullptr, NULL, reinterpret_cast<LPTHREAD_START_ROUTINE>(instance), hModule, NULL, nullptr))
         CloseHandle(thread);
 

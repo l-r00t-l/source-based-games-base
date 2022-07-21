@@ -25,7 +25,7 @@ bool __stdcall c_hooks::hk_create_move(float frame_time, c_user_cmd* cmd)
 	c_engine_prediction::get()->init();
 	c_engine_prediction::get()->begin(cmd);
 	{
-		//c_misc::get()->edge_jump_post_prediction(cmd);
+		c_misc::get()->edge_jump(cmd);
 		// do aimbot etc...
 	}
 	c_engine_prediction::get()->end();
